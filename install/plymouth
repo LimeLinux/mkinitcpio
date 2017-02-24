@@ -4,7 +4,7 @@ build() {
 	add_dir /var/run/plymouth
 
 	DATADIR="/usr/share"
-	PLYMOUTH_LOGO_FILE="${DATADIR}/pixmaps/plymouth-pisilinux.png"
+	PLYMOUTH_LOGO_FILE="${DATADIR}/pixmaps/plymouth-limelinux.png"
 	PLYMOUTH_THEME_NAME="$(/usr/sbin/plymouth-set-default-theme)"
 	PLYMOUTH_MODULE_NAME="$(grep "ModuleName *= *" ${DATADIR}/plymouth/themes/${PLYMOUTH_THEME_NAME}/${PLYMOUTH_THEME_NAME}.plymouth | sed 's/ModuleName *= *//')"
 	PLYMOUTH_PLUGIN_PATH="$(plymouth --get-splash-plugin-path)"
@@ -18,7 +18,7 @@ build() {
 	add_binary ${PLYMOUTH_PLUGIN_PATH}/details.so
 
 	add_file "${PLYMOUTH_LOGO_FILE}"
-	add_file /etc/pisilinux-release
+	add_file /etc/limelinux-release
 	add_file /etc/plymouth/plymouthd.conf
     add_file ${DATADIR}/plymouth/plymouthd.defaults
 
